@@ -7,6 +7,12 @@ Pertama, install [Yeoman](http://yeoman.io) dan yang penting sudah punya pre-ins
 
 ```bash
 npm install -g yo
+mkdir generator
+cd generator
+git clone https://github.com/edwardsuwirya/fes-generator.git
+cd fes-generator
+npm install
+npm link
 ```
 
 Untuk membuat project baru :
