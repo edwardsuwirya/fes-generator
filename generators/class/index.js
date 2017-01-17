@@ -2,35 +2,53 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var _ = require('lodash');
+var path = require('path');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the outstanding ' + chalk.red('generator-btpn-fes') + ' generator!'
+      chalk.green('BTPN FES Class') + ' generator!'
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+      type: 'input',
+      name: 'className',
+      message: 'Nama Class nya, brad..?',
+      default: 'MyClass'
+    }, {
+      type: 'input',
+      name: 'classPath',
+      message: 'Dibikin dimana nih (relatif ke src/app/ yak path-nya) ??',
+      default: ''
+    }
+    ];
 
     return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
   },
 
   writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
+    try {
+      var className = _.startCase(this.props.className).split(' ').join('');
+      var classPath = this.props.classPath;
+
+      var classFileName = _.kebabCase(className);
+      var normalPath = path.join(this.config.get('sourceDir'), classPath);
+
+      this.fs.copyTpl(
+        this.templatePath('__name__.ts'),
+        this.destinationPath(path.join(normalPath, classFileName + '.ts')), {
+          className: className
+        }
+      );
+    } catch (err) {
+      this.env.error("Ada kesalahan coy..." + err);
+    }
   },
 
   install: function () {
-    this.installDependencies();
+    // this.installDependencies();
   }
 });

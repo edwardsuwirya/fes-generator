@@ -1,7 +1,7 @@
 {
-  "name": "angular2-webpack",
+  "name": "btpn-fes",
   "version": "1.0.0",
-  "description": "A webpack starter for Angular",
+  "description": "BTPN FES Angular 2 Web Starter",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
@@ -19,7 +19,7 @@
     "@angular/router": "~3.4.0",
     "core-js": "^2.4.1",
     "rxjs": "5.0.1",
-    "zone.js": "^0.7.4"
+    "zone.js": "0.7.2"
   },
   "devDependencies": {
     "@types/node": "^6.0.45",

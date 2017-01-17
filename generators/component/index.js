@@ -1,10 +1,12 @@
 'use strict';
+var fs = require('fs');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
-require('shelljs/global');
 var _ = require('lodash');
+var Observable = require('rxjs/Observable').Observable;
+var helper = require('../app/helper.js');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
@@ -37,17 +39,15 @@ module.exports = yeoman.Base.extend({
 
       var componentFileName = _.kebabCase(componentName);
 
-      var normalPath = path.join(this.config.get('sourceDir'), componentPath, componentFileName);
+      var sc = this.config.get('sourceDir');
+      var normalPath = path.join(sc, componentPath, componentFileName);
 
-      cd(path.join(this.config.get('sourceDir'), componentPath));
-      ls('*.module.ts').forEach(function (file) {
-        sed('-i', 'declarations(.*)', 'declarations$1 '+ componentName + 'Component,', file);
-      });
+
       this.fs.copyTpl(
         this.templatePath('__name__.component.ts'),
         this.destinationPath(path.join(normalPath, componentFileName + '.component.ts')), {
           componentName: componentName,
-          componentFileName:componentFileName
+          componentFileName: componentFileName
         }
       );
       this.fs.copyTpl(
@@ -59,8 +59,21 @@ module.exports = yeoman.Base.extend({
         this.templatePath('__name__.component.css'),
         this.destinationPath(path.join(normalPath, componentFileName + '.component.css')), {}
       );
-    }catch (err){
-      this.env.error("Ada kesalahan coy...");
+
+      helper.findFile(sc, componentPath).subscribe(function (file) {
+        helper.readFile(sc, componentPath, file).subscribe(function (a) {
+          var res = helper
+            .init(a.content, componentName + 'Component', _.join(['.', componentFileName, componentFileName + '.component'], '/'))
+            .importInjector()
+            .bracketInjector()
+            .beautiful()
+            .writeFile(a.path, file);
+          // console.log(res);
+        });
+      })
+
+    } catch (err) {
+      this.env.error("Ada kesalahan coy..." + err);
     }
   },
 

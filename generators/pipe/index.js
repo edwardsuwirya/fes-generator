@@ -2,35 +2,72 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var fs = require('fs');
+var path = require('path');
+var _ = require('lodash');
+var Observable = require('rxjs/Observable').Observable;
+var helper = require('../app/helper.js');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
-    // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the awesome ' + chalk.red('generator-btpn-fes') + ' generator!'
+      chalk.blue('BTPN FES Pipe') + ' generator!'
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+      type: 'input',
+      name: 'pipeName',
+      message: 'Nama Pipe nya, genks..?',
+      default: 'MyDirective'
+    }, {
+      type: 'input',
+      name: 'pipePath',
+      message: 'Dibikin dimana nih (relatif ke src/app/ yak path-nya) ??',
+      default: ''
+    }
+    ];
 
     return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
       this.props = props;
     }.bind(this));
   },
 
   writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
+    try {
+      var pipeName = _.startCase(this.props.pipeName).split(' ').join('');
+      var pipePath = this.props.pipePath;
+
+      var pipeFileName = _.kebabCase(pipeName);
+
+      var sc = this.config.get('sourceDir');
+
+      var normalPath = path.join(sc, pipePath);
+
+      this.fs.copyTpl(
+        this.templatePath('__name__.pipe.ts'),
+        this.destinationPath(path.join(normalPath, pipeFileName + '.pipe.ts')), {
+          pipeName: pipeName
+        }
+      );
+
+      helper.findFile(sc, pipePath).subscribe(function (file) {
+        helper.readFile(sc, pipePath, file).subscribe(function (a) {
+          var res = helper
+            .init(a.content, pipeName + 'Pipe', _.join(['.', pipePath, pipeFileName + '.pipe'], '/'))
+            .importInjector()
+            .bracketInjector()
+            .beautiful()
+            .writeFile(a.path, file);
+          // console.log(a);
+        });
+      });
+
+    } catch (err) {
+      this.env.error("Ada kesalahan coy..." + err);
+    }
   },
 
   install: function () {
-    this.installDependencies();
+    // this.installDependencies();
   }
 });

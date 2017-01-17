@@ -2,7 +2,11 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var fs = require('fs');
 var path = require('path');
+var _ = require('lodash');
+var Observable = require('rxjs/Observable').Observable;
+var helper = require('../app/helper.js');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
@@ -14,7 +18,7 @@ module.exports = yeoman.Base.extend({
       type: 'input',
       name: 'plainServiceName',
       message: 'Nama Plain Service nya, Bang..?',
-      default: 'HttpService'
+      default: 'PlainService'
     }, {
       type: 'input',
       name: 'plainServicePath',
@@ -35,13 +39,26 @@ module.exports = yeoman.Base.extend({
 
       var serviceFileName = _.kebabCase(serviceName);
 
-      var normalPath = path.join(this.config.get('sourceDir'), servicePath)
+      var sc = this.config.get('sourceDir');
+      var normalPath = path.join(sc, servicePath);
+
       this.fs.copyTpl(
         this.templatePath('__name__.service.ts'),
         this.destinationPath(path.join(normalPath, serviceFileName + '.service.ts')), {
           plainServiceName: serviceName
         }
       );
+      helper.findFile(sc, servicePath).subscribe(function (file) {
+        helper.readFile(sc, servicePath, file).subscribe(function (a) {
+          var res = helper
+            .init(a.content, serviceName + 'Service', _.join(['.', servicePath, serviceFileName + '.service'], '/'))
+            .importInjector()
+            .bracketProviderInjector()
+            .beautiful()
+            .writeFile(a.path, file);
+          // console.log(a);
+        });
+      });
     } catch (err) {
       this.env.error("Ada yang salah bung....");
     }

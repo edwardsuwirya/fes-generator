@@ -2,12 +2,16 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var fs = require('fs');
 var path = require('path');
+var _ = require('lodash');
+var Observable = require('rxjs/Observable').Observable;
+var helper = require('../app/helper.js');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
     this.log(yosay(
-      chalk.red('BTPN FES Directive') + ' generator!'
+      chalk.yellow('BTPN FES Directive') + ' generator!'
     ));
 
     var prompts = [{
@@ -29,16 +33,38 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    var directiveName = this.props.directiveName;
-    var directivePath = this.props.directivePath;
+    try {
+      var directiveName = _.startCase(this.props.directiveName).split(' ').join('');
+      var directivePath = this.props.directivePath;
 
-    var normalPath = path.join(this.config.get('sourceDir'), directivePath)
-    this.fs.copyTpl(
-      this.templatePath('__name__.directive.ts'),
-      this.destinationPath(path.join(normalPath, directiveName + '.component.ts')), {
-        directiveName: directiveName
-      }
-    );
+      var directiveFileName = _.kebabCase(directiveName);
+
+      var sc = this.config.get('sourceDir');
+      var normalPath = path.join(sc, directivePath);
+
+      this.fs.copyTpl(
+        this.templatePath('__name__.directive.ts'),
+        this.destinationPath(path.join(normalPath, directiveFileName + '.directive.ts')), {
+          directiveName: directiveName
+        }
+      );
+
+      helper.findFile(sc, directivePath).subscribe(function (file) {
+        helper.readFile(sc, directivePath, file).subscribe(function (a) {
+          var res = helper
+            .init(a.content, directiveName + 'Directive', _.join(['.', directiveFileName + '.directive'], '/'))
+            .importInjector()
+            .bracketInjector()
+            .beautiful()
+            .writeFile(a.path, file);
+          // console.log(res);
+
+        });
+      })
+
+    } catch (err) {
+      this.env.error("Ada kesalahan coy..." + err);
+    }
   },
 
   install: function () {

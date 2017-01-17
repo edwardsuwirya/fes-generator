@@ -1,3 +1,7 @@
+/*
+  commonjs vs systemjs ???
+  Because we use modules in TypeScript or ES6, we need a module loader
+*/
 {
     "compilerOptions": {
         "target": "es5",

@@ -1,0 +1,17 @@
+{
+  "name": "btpn-fes",
+  "authors": [
+    "Edward Suwirya <edward.suwirya@btpn.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
