@@ -124,6 +124,10 @@ module.exports = yeoman.Base.extend({
           this.templatePath('src/public/images/angular.png'),
           this.destinationPath('src/public/images/angular.png')
         );
+        this.fs.copy(
+          this.templatePath('src/public/images/favicon.ico'),
+          this.destinationPath('src/public/images/favicon.ico')
+        );
       }
     },
     sharing: function () {
