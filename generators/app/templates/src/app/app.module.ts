@@ -2,7 +2,7 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from './shared/shared.module';
 import {BrowserModule} from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms';
 import {AppRouteModule} from './app-route/app-route.module';
 
 import {AppComponent} from './app.component';
@@ -13,7 +13,7 @@ import {AppComponent} from './app.component';
     BrowserModule,
     AppRouteModule,
     SharedModule,
-    RouterModule
+    ReactiveFormsModule
   ],
   declarations: [
     // start_declarations

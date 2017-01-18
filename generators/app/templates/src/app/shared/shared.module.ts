@@ -1,6 +1,6 @@
 /* beautify preserve:start */
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 /* beautify preserve:end */
 
 @NgModule({
@@ -15,4 +15,5 @@ import { CommonModule } from '@angular/common';
   exports: [
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}
