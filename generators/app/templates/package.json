@@ -19,7 +19,10 @@
     "@angular/router": "~3.4.0",
     "core-js": "^2.4.1",
     "rxjs": "5.0.1",
-    "zone.js": "0.7.2"
+    "zone.js": "0.7.2",
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7",
+    "accounting": "^0.4.1"
   },
   "devDependencies": {
     "@types/node": "^6.0.45",
@@ -44,6 +47,7 @@
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "typescript": "~2.0.10",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.14.0"

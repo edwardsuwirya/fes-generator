@@ -128,6 +128,34 @@ module.exports = yeoman.Base.extend({
           this.templatePath('src/public/images/favicon.ico'),
           this.destinationPath('src/public/images/favicon.ico')
         );
+        this.fs.copy(
+          this.templatePath('src/public/css/font-awesome/css/font-awesome.min.css'),
+          this.destinationPath('src/public/css/font-awesome/css/font-awesome.min.css')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/css/font-awesome/fonts/FontAwesome.otf'),
+          this.destinationPath('src/public/css/font-awesome/fonts/FontAwesome.otf')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/css/font-awesome/fonts/fontawesome-webfont.eot'),
+          this.destinationPath('src/public/css/font-awesome/fonts/fontawesome-webfont.eot')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/css/font-awesome/fonts/fontawesome-webfont.svg'),
+          this.destinationPath('src/public/css/font-awesome/fonts/fontawesome-webfont.svg')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/css/font-awesome/fonts/fontawesome-webfont.ttf'),
+          this.destinationPath('src/public/css/font-awesome/fonts/fontawesome-webfont.ttf')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/css/font-awesome/fonts/fontawesome-webfont.woff'),
+          this.destinationPath('src/public/css/font-awesome/fonts/fontawesome-webfont.woff')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/css/font-awesome/fonts/fontawesome-webfont.woff2'),
+          this.destinationPath('src/public/css/font-awesome/fonts/fontawesome-webfont.woff2')
+        );
       }
     },
     sharing: function () {
@@ -137,20 +165,20 @@ module.exports = yeoman.Base.extend({
           this.destinationPath('src/app/shared/component')
         );
         this.fs.copy(
-          this.templatePath('src/app/shared/directive'),
-          this.destinationPath('src/app/shared/directive')
+          this.templatePath('src/app/shared/directive/format-angka.directive.ts'),
+          this.destinationPath('src/app/shared/directive/format-angka.directive.ts')
         );
         this.fs.copy(
           this.templatePath('src/app/shared/pipe'),
           this.destinationPath('src/app/shared/pipe')
         );
         this.fs.copy(
-          this.templatePath('src/app/shared/service'),
-          this.destinationPath('src/app/shared/service')
+          this.templatePath('src/app/shared/service/validation-message.service.ts'),
+          this.destinationPath('src/app/shared/service/validation-message.service.ts')
         );
         this.fs.copy(
-          this.templatePath('src/app/shared/model'),
-          this.destinationPath('src/app/shared/model')
+          this.templatePath('src/app/shared/model/common-response.ts'),
+          this.destinationPath('src/app/shared/model/common-response.ts')
         );
         this.fs.copy(
           this.templatePath('src/app/shared/shared.module.ts'),

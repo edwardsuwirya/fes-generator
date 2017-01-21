@@ -33,6 +33,8 @@ const routes: Routes = [{
     // end_providers
   ],
   exports: [
+    // start_exports
+    // end_exports
   ]
 })
 export class <%= moduleName %>Module { }

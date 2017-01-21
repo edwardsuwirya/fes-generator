@@ -51,14 +51,24 @@ module.exports = yeoman.Base.extend({
       );
 
       helper.findFile(sc, pipePath).subscribe(function (file) {
-        helper.readFile(sc, pipePath, file).subscribe(function (a) {
-          var res = helper
-            .init(a.content, pipeName + 'Pipe', _.join(['.', pipePath, pipeFileName + '.pipe'], '/'))
-            .importInjector()
-            .bracketInjector()
-            .beautiful()
-            .writeFile(a.path, file);
-          // console.log(a);
+        helper.readFile(file).subscribe(function (a) {
+          if (a.isRootModule) {
+            var res = helper
+              .init(a.content, pipeName + 'Pipe', _.join(['.', pipePath, pipeFileName + '.pipe'], '/'))
+              .importInjector()
+              .bracketDeclarationInjector()
+              .beautiful()
+              .writeFile(file);
+            // console.log(a);
+          }else{
+            var res = helper
+              .init(a.content, pipeName + 'Pipe', _.join(['.', pipePath, pipeFileName + '.pipe'], '/'))
+              .importInjector()
+              .bracketDeclarationInjector()
+              .bracketExportInjector()
+              .beautiful()
+              .writeFile(file);
+          }
         });
       });
 

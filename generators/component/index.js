@@ -61,13 +61,24 @@ module.exports = yeoman.Base.extend({
       );
 
       helper.findFile(sc, componentPath).subscribe(function (file) {
-        helper.readFile(sc, componentPath, file).subscribe(function (a) {
-          var res = helper
-            .init(a.content, componentName + 'Component', _.join(['.', componentFileName, componentFileName + '.component'], '/'))
-            .importInjector()
-            .bracketInjector()
-            .beautiful()
-            .writeFile(a.path, file);
+        helper.readFile(file).subscribe(function (a) {
+          var res;
+          if (a.isRootModule) {
+            res = helper
+              .init(a.content, componentName + 'Component', _.join(['.', componentFileName, componentFileName + '.component'], '/'))
+              .importInjector()
+              .bracketDeclarationInjector()
+              .beautiful()
+              .writeFile(file);
+          } else {
+            res = helper
+              .init(a.content, componentName + 'Component', _.join(['.', componentFileName, componentFileName + '.component'], '/'))
+              .importInjector()
+              .bracketDeclarationInjector()
+              .bracketExportInjector()
+              .beautiful()
+              .writeFile(file);
+          }
           // console.log(res);
         });
       })

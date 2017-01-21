@@ -18,7 +18,7 @@ module.exports = {
     loaders: [
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader','angular2-router-loader']
+        loaders: ['awesome-typescript-loader', 'angular2-template-loader', 'angular2-router-loader']
       },
       {
         test: /\.html$/,
@@ -37,6 +37,10 @@ module.exports = {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
         loader: 'raw'
+      },
+      {
+        test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+        loader: 'file?name=assets/[name].[hash].[ext]'
       }
     ]
   },
@@ -47,9 +51,16 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      title:'BTPN FES',
+      title: 'BTPN FES',
       template: 'src/index.html',
       favicon: 'src/public/images/favicon.ico'
+    }),
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery',
+      jquery: 'jquery',
+      accounting: 'accounting'
     })
+
   ]
 };
