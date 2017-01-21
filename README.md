@@ -29,7 +29,25 @@ yo btpn-fes:module
 yo btpn-fes:component
 yo btpn-fes:plain-service
 yo btpn-fes:http-service
+yp btpn-fes:directive
+yp btpn-fes:pipe
+yp btpn-fes:validator
 ```
+
+### Feature Module Generator
+Akan men-generate 1 module,1 model,1 service, dan 2 komponen (list dan detail).
+Generator ini membutuhkan json file sebagai informasi di class model
+ ```json
+ {"props":[
+ 	{"name":"fullName","type":"text"},
+ 	{"name":"gender","type":"option","option":["male","female"]},
+ 	{"name":"city","type":"select","option":["a","b","c"]}
+ ]}
+ ```
+```bash
+yo btpn-fes:feat-module
+```
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
