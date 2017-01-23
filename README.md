@@ -1,9 +1,9 @@
 # FES Generator
-> Scaffolding For Angular 2 Project
+> Scaffolding For Angular 2 Project With [Webpack](https://webpack.github.io/)
 
 ## Installation
 
-Pertama, install [Yeoman](http://yeoman.io) dan yang penting sudah punya pre-installed [node.js](https://nodejs.org/)).
+Pertama, install [Yeoman](http://yeoman.io) dan yang penting sudah punya pre-installed [node.js](https://nodejs.org/).
 
 ```bash
 npm install -g yo
@@ -54,6 +54,10 @@ yo btpn-fes:feat-module
  * Yeoman is a person with feelings and opinions, but is very easy to work with.
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
+
+## Notes
+Generator ini dibangun menggunakan contoh dari dokumentasi advance guide [Angular.IO](https://angular.io/).
+Sangat diharapkan kontribusi dari komunitas pengembang perangkat lunak internal agar generator ini semakin baik dan bermanfaat.
 
 ## License
 
