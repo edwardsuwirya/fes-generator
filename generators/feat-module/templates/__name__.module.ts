@@ -2,9 +2,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { <%= featureName %>Service } from './<%= lowerFeatureName %>.service';
-import { <%= featureName %>ListComponent } from './list/<%= lowerFeatureName %>-list.component';
-import { <%= featureName %>DetailComponent } from './detail/<%= lowerFeatureName %>-detail.component';
+import { <%= featureName %>Service } from './<%= featureFileName %>.service';
+import { <%= featureName %>ListComponent } from './list/<%= featureFileName %>-list.component';
+import { <%= featureName %>DetailComponent } from './detail/<%= featureFileName %>-detail.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 /* beautify preserve:end */
 
@@ -25,6 +26,7 @@ const routes: Routes = [{
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [

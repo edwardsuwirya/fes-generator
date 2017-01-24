@@ -6,6 +6,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AppRouteModule} from './app-route/app-route.module';
 
 import {AppComponent} from './app.component';
+import {WelcomeComponent} from './welcome/welcome.component';
 /* beautify preserve:end */
 
 @NgModule({
@@ -18,6 +19,7 @@ import {AppComponent} from './app.component';
   declarations: [
     // start_declarations
     AppComponent,
+    WelcomeComponent
     // end_declarations
   ],
   providers: [

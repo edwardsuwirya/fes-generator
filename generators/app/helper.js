@@ -6,7 +6,6 @@ var path = require('path');
 var us = require("underscore.string");
 var Observable = require('rxjs/Observable').Observable;
 var _ = require('lodash');
-require('shelljs/global');
 var beautify = require('js-beautify').js_beautify;
 
 
@@ -41,8 +40,7 @@ module.exports = {
           isRootMod = true;
         }
         fs.readFile(fileName, 'utf8', function (err, data) {
-          var stringData = data;
-          obs.next({path: fileName, content: stringData, isRootModule: isRootMod});
+          obs.next({path: fileName, content: data, isRootModule: isRootMod});
         });
       });
     });
@@ -125,5 +123,4 @@ module.exports = {
       }
     });
   }
-
-}
+};

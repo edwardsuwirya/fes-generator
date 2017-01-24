@@ -112,6 +112,18 @@ module.exports = yeoman.Base.extend({
           this.destinationPath('src/app/app.component.ts')
         );
         this.fs.copy(
+          this.templatePath('src/app/welcome/welcome.component.css'),
+          this.destinationPath('src/app/welcome/welcome.component.css')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/welcome/welcome.component.html'),
+          this.destinationPath('src/app/welcome/welcome.component.html')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/welcome/welcome.component.ts'),
+          this.destinationPath('src/app/welcome/welcome.component.ts')
+        );
+        this.fs.copy(
           this.templatePath('src/app/app.module.ts'),
           this.destinationPath('src/app/app.module.ts')
         );
@@ -121,8 +133,12 @@ module.exports = yeoman.Base.extend({
           this.destinationPath('src/public/css/styles.css')
         );
         this.fs.copy(
-          this.templatePath('src/public/images/angular.png'),
-          this.destinationPath('src/public/images/angular.png')
+          this.templatePath('src/public/css/main.css'),
+          this.destinationPath('src/public/css/main.css')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/images/logo-putih.png'),
+          this.destinationPath('src/public/images/logo-putih.png')
         );
         this.fs.copy(
           this.templatePath('src/public/images/favicon.ico'),
@@ -156,13 +172,53 @@ module.exports = yeoman.Base.extend({
           this.templatePath('src/public/css/font-awesome/fonts/fontawesome-webfont.woff2'),
           this.destinationPath('src/public/css/font-awesome/fonts/fontawesome-webfont.woff2')
         );
+        this.fs.copy(
+          this.templatePath('src/public/fonts/fontawesome-webfont.eot'),
+          this.destinationPath('src/public/fonts/fontawesome-webfont.eot')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/fonts/fontawesome-webfont.svg'),
+          this.destinationPath('src/public/fonts/fontawesome-webfont.svg')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/fonts/fontawesome-webfont.ttf'),
+          this.destinationPath('src/public/fonts/fontawesome-webfont.ttf')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/fonts/fontawesome-webfont.woff'),
+          this.destinationPath('src/public/fonts/fontawesome-webfont.woff')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/fonts/fontawesome-webfont.woff2'),
+          this.destinationPath('src/public/fonts/fontawesome-webfont.woff2')
+        );
       }
     },
     sharing: function () {
       if (this.props.yakin) {
         this.fs.copy(
-          this.templatePath('src/app/shared/component'),
-          this.destinationPath('src/app/shared/component')
+          this.templatePath('src/app/shared/component/footer/footer.component.html'),
+          this.destinationPath('src/app/shared/component/footer/footer.component.html')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/footer/footer.component.ts'),
+          this.destinationPath('src/app/shared/component/footer/footer.component.ts')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/sidebar/sidebar.component.html'),
+          this.destinationPath('src/app/shared/component/sidebar/sidebar.component.html')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/sidebar/sidebar.component.ts'),
+          this.destinationPath('src/app/shared/component/sidebar/sidebar.component.ts')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/top-header/top-header.component.html'),
+          this.destinationPath('src/app/shared/component/top-header/top-header.component.html')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/top-header/top-header.component.ts'),
+          this.destinationPath('src/app/shared/component/top-header/top-header.component.ts')
         );
         this.fs.copy(
           this.templatePath('src/app/shared/directive/format-angka.directive.ts'),
@@ -175,6 +231,14 @@ module.exports = yeoman.Base.extend({
         this.fs.copy(
           this.templatePath('src/app/shared/service/validation-message.service.ts'),
           this.destinationPath('src/app/shared/service/validation-message.service.ts')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/service/token.service.ts'),
+          this.destinationPath('src/app/shared/service/token.service.ts')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/service/sidebar.service.ts'),
+          this.destinationPath('src/app/shared/service/sidebar.service.ts')
         );
         this.fs.copy(
           this.templatePath('src/app/shared/model/common-response.ts'),

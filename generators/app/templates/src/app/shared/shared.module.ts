@@ -2,6 +2,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormatAngkaDirective} from './directive/format-angka.directive';
+
+import {TopHeaderComponent} from './component/top-header/top-header.component';
+import {FooterComponent} from './component/footer/footer.component';
+import {SidebarComponent} from './component/sidebar/sidebar.component';
+import {SidebarService} from "./service/sidebar.service";
 /* beautify preserve:end */
 
 @NgModule({
@@ -10,13 +15,21 @@ import {FormatAngkaDirective} from './directive/format-angka.directive';
   ],
   declarations: [
     // start_declarations
-    FormatAngkaDirective
+    FormatAngkaDirective,
+    TopHeaderComponent,
+    FooterComponent,
+    SidebarComponent
     // end_declarations
   ],
-  providers: [],
+  providers: [
+    SidebarService
+  ],
   exports: [
     // start_exports
-    FormatAngkaDirective
+    FormatAngkaDirective,
+    TopHeaderComponent,
+    FooterComponent,
+    SidebarComponent
     // end_exports
   ]
 })
