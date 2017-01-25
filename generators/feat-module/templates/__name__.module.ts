@@ -10,7 +10,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 /* beautify preserve:end */
 
 const routes: Routes = [{
-  path: '',
+  path: '<%= featureMainPath %>',
   children: [
     {
       path: 'list',

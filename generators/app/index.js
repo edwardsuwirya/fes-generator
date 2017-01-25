@@ -213,6 +213,14 @@ module.exports = yeoman.Base.extend({
           this.destinationPath('src/app/shared/component/sidebar/sidebar.component.ts')
         );
         this.fs.copy(
+          this.templatePath('src/app/shared/component/sidebar-item/sidebar-item.component.html'),
+          this.destinationPath('src/app/shared/component/sidebar-item/sidebar-item.component.html')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/sidebar-item/sidebar-item.component.ts'),
+          this.destinationPath('src/app/shared/component/sidebar-item/sidebar-item.component.ts')
+        );
+        this.fs.copy(
           this.templatePath('src/app/shared/component/top-header/top-header.component.html'),
           this.destinationPath('src/app/shared/component/top-header/top-header.component.html')
         );

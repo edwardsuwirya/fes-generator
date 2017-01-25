@@ -8,6 +8,10 @@ const appRoutes: Routes = [
   // {path: 'lazy', loadChildren: '../module/my-module.module#MyModuleModule'},
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
   {path: 'welcome', component: WelcomeComponent}
+  //{path: 'welcome', component: WelcomeComponent,children:[
+  //  {path: 'rekening/list', component: RekeningListComponent},
+  //  {path: 'rekening/detail', component: RekeningDetailComponent}
+  // ]}
   // { path: '**', component: yourComponentName }
 ];
 

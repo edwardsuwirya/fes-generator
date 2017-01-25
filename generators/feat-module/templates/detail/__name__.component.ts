@@ -14,4 +14,8 @@ export class <%= featureName %>DetailComponent implements OnInit {
       <%- formGroupDetail %>
     });
   }
+
+  executeTask(){
+    console.log('Execute task done...');
+  }
 }

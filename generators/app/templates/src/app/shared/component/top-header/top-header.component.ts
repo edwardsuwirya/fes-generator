@@ -7,13 +7,11 @@ import {SidebarService} from "../../service/sidebar.service";
     //,styleUrls: ['welcome.component.css']
 })
 export class TopHeaderComponent {
-    isSidebarOpen: boolean = false;
 
     constructor(private sidebarService: SidebarService) {
     }
 
     changeStatus() {
-        this.isSidebarOpen = !this.isSidebarOpen;
-        this.sidebarService.toggling(this.isSidebarOpen);
+      this.sidebarService.togglingOnOff();
     }
 }

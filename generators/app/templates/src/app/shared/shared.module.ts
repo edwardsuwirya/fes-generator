@@ -6,6 +6,7 @@ import {FormatAngkaDirective} from './directive/format-angka.directive';
 import {TopHeaderComponent} from './component/top-header/top-header.component';
 import {FooterComponent} from './component/footer/footer.component';
 import {SidebarComponent} from './component/sidebar/sidebar.component';
+import {SidebarItemComponent} from './component/sidebar-item/sidebar-item.component';
 import {SidebarService} from "./service/sidebar.service";
 /* beautify preserve:end */
 
@@ -18,7 +19,8 @@ import {SidebarService} from "./service/sidebar.service";
     FormatAngkaDirective,
     TopHeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    SidebarItemComponent
     // end_declarations
   ],
   providers: [
@@ -29,7 +31,8 @@ import {SidebarService} from "./service/sidebar.service";
     FormatAngkaDirective,
     TopHeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    SidebarItemComponent
     // end_exports
   ]
 })

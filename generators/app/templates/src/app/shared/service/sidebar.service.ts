@@ -3,13 +3,21 @@
  */
 import {Injectable} from '@angular/core';
 import {BehaviorSubject}  from 'rxjs/BehaviorSubject';
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class SidebarService {
-    public toggleMenu = new BehaviorSubject<boolean>(false);
+  toggleMenu = new BehaviorSubject<boolean>(false);
+  private currentStatus: boolean = false;
 
-    toggling(stat: boolean) {
-        this.toggleMenu.next(stat);
-    }
+  togglingOnOff() {
+    this.currentStatus = !this.currentStatus;
+    this.toggleMenu.next(this.currentStatus);
+  }
+
+
+  listenStatus(): Observable<boolean> {
+    return this.toggleMenu.asObservable();
+  }
 
 }

@@ -13,8 +13,8 @@ export class SidebarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.sidebarService.toggleMenu.subscribe(res => {
-            this.isOpen = res;
-        })
+      this.sidebarService.listenStatus().subscribe(res => {
+        this.isOpen = res;
+      });
     }
 }
