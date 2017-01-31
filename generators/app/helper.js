@@ -24,7 +24,8 @@ module.exports = {
         var rr = (r.join(path.sep));
         var fileMod = _.takeRight(r);
         if (fs.existsSync(rr + path.sep + fileMod + '.module.ts')) {
-          obs.next(rr + path.sep + fileMod + '.module.ts');
+          var folderComponentName = _.takeRight(_.take(sp, sp.length - i + 1));
+          obs.next({moduleName: rr + path.sep + fileMod + '.module.ts', componentFolder: folderComponentName});
           break;
         }
 
@@ -70,7 +71,21 @@ module.exports = {
     return this;
   }
   ,
+  bracketChildrenInjector: function () {
+    var startMatch = /start_children/.exec(this.result);
+    var endMatch = /end_children/.exec(this.result);
 
+    var startIndex = startMatch.index + 14;
+    var endIndex = endMatch.index - 2;
+    var urlPath = this.componentName.split('Component');
+
+    this.result = [
+      [this.result.substr(0, startIndex),
+        '{path: \'' + _.camelCase(urlPath[0]) + '\', component: ' + this.componentName + '}' + ',' + this.result.substr(startIndex, endIndex - startIndex)].join('\n'),
+      this.result.substr(endMatch.index - 2, this.result.length)].join('');
+    return this;
+  }
+  ,
   bracketDeclarationInjector: function () {
     var startMatch = /start_declarations/.exec(this.result);
     var endMatch = /end_declarations/.exec(this.result);
@@ -100,6 +115,19 @@ module.exports = {
   bracketExportInjector: function () {
     var startMatch = /start_exports/.exec(this.result);
     var endMatch = /end_exports/.exec(this.result);
+
+    var startIndex = startMatch.index + 13;
+    var endIndex = endMatch.index - 2;
+    this.result = [
+      [this.result.substr(0, startIndex),
+        this.componentName + ',' + this.result.substr(startIndex, endIndex - startIndex)].join('\n'),
+      this.result.substr(endMatch.index - 2, this.result.length)].join('');
+    return this;
+  }
+  ,
+  bracketImportInjector: function () {
+    var startMatch = /start_imports/.exec(this.result);
+    var endMatch = /end_imports/.exec(this.result);
 
     var startIndex = startMatch.index + 13;
     var endIndex = endMatch.index - 2;

@@ -3,60 +3,31 @@ import { Observable } from 'rxjs/Rx';
 import { Http, Response, Headers,RequestOptions } from '@angular/http';
 import { <%= featureName %> } from './<%= featureFileName %>';
 
-import { TokenService } from "../shared/service/token.service";
-
 @Injectable()
 export class <%= featureName %>Service {
     serviceBaseUrl:string = 'http://localhost:8080/api/';
 
-    constructor(private http:Http,private tokenService:TokenService) { }
-
-    createAuthorizationHeader(headers: Headers) {
-      headers.append('Authorization', 'Bearer  ' +
-      this.tokenService.getToken('usertoken'));
-    }
+    constructor(private http:Http) { }
 
     getAll<%= featureName %>():Observable<<%= featureName %>[]>{
-      let headers = new Headers();
-      this.createAuthorizationHeader(headers);
-
-      let options = new RequestOptions({ headers: headers });
-
-      return this.http.get(this.serviceBaseUrl,options)
+      return this.http.get(this.serviceBaseUrl)
         .map(this.extractData)
         .catch(this.handleError);
     }
 
     create<%= featureName %>(<%= lowerFeatureName %>:<%= featureName %>):Observable<any>{
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.createAuthorizationHeader(headers);
-
-      let options = new RequestOptions({ headers: headers });
-
-      return this.http.post(this.serviceBaseUrl,<%= lowerFeatureName %>,options)
+      return this.http.post(this.serviceBaseUrl,<%= lowerFeatureName %>)
         .map(this.extractData)
         .catch(this.handleError);
     }
 
     update<%= featureName %>(<%= lowerFeatureName %>:<%= featureName %>):Observable<any>{
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.createAuthorizationHeader(headers);
-
-      let options = new RequestOptions({ headers: headers });
-
-      return this.http.post(this.serviceBaseUrl,<%= lowerFeatureName %>,options)
+      return this.http.post(this.serviceBaseUrl,<%= lowerFeatureName %>)
         .map(this.extractData)
         .catch(this.handleError);
     }
     delete<%= featureName %>(<%= lowerFeatureName %>:<%= featureName %>):Observable<any>{
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.createAuthorizationHeader(headers);
-
-      let options = new RequestOptions({ headers: headers });
-      return this.http.post(this.serviceBaseUrl,<%= lowerFeatureName %>,options)
+      return this.http.post(this.serviceBaseUrl,<%= lowerFeatureName %>)
         .map(this.extractData)
         .catch(this.handleError);
     }

@@ -1,14 +1,25 @@
 <div class="row">
-    <header id="header">
-        <div class="col-md-10">
-            <a href="index"><img src="../../../../public/images/logo-putih.png" class="icon-app"></a>
-            <span class="app-name"> | App Name v.1.0</span>
-            <i class="fa fa-bars toggle-menu" (click)="changeStatus()"></i>
-        </div>
-        <div class="col-md-2"><span class="btn-logout"><!--<a class="btn btn-warning">Logout</a>--><a href="#"><i
-                class="fa fa-power-off" title="Logout"></i></a></span><span class="user-login" href="#"
-                                                                            title="Profile Page"> Hi, Administrator</span>
-        </div>
-    </header>
+  <header id="header">
+
+    <div class="col-md-6">
+      <a href="index"><img src="../../../../public/images/logo-putih.png" class="icon-app"></a>
+      <span class="app-name"> | App Name v.1.0</span>
+      <i class="fa fa-bars toggle-menu" (click)="changeStatus()"></i>
+    </div>
+
+    <div class="user-login">Administrator
+      <img src="../../../../public/images/m32.png" class="i-user-login" id="btnGroupDrop1" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false" alt="User Login">
+
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#" title="Edit Profile"><i class="fa fa-edit"></i> Edit Profile</a>
+        <a class="dropdown-item" href="#" title="Setting"><i class="fa fa-cog"></i> Setting</a>
+        <a class="dropdown-item" href="#" title="Logout!"><i class="fa fa-power-off"></i> Logout!</a>
+      </div>
+
+    </div>
+
+    <span class="hi">Hi,</span>
+  </header>
 </div>
 

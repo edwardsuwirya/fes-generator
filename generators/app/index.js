@@ -112,17 +112,58 @@ module.exports = yeoman.Base.extend({
           this.destinationPath('src/app/app.component.ts')
         );
         this.fs.copy(
-          this.templatePath('src/app/welcome/welcome.component.css'),
-          this.destinationPath('src/app/welcome/welcome.component.css')
+          this.templatePath('src/app/home/home.component.css'),
+          this.destinationPath('src/app/home/home.component.css')
         );
         this.fs.copy(
-          this.templatePath('src/app/welcome/welcome.component.html'),
-          this.destinationPath('src/app/welcome/welcome.component.html')
+          this.templatePath('src/app/home/home.component.html'),
+          this.destinationPath('src/app/home/home.component.html')
         );
         this.fs.copy(
-          this.templatePath('src/app/welcome/welcome.component.ts'),
-          this.destinationPath('src/app/welcome/welcome.component.ts')
+          this.templatePath('src/app/home/home.component.ts'),
+          this.destinationPath('src/app/home/home.component.ts')
         );
+        //login
+        this.fs.copy(
+          this.templatePath('src/app/login/login.component.css'),
+          this.destinationPath('src/app/login/login.component.css')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/login/login.component.html'),
+          this.destinationPath('src/app/login/login.component.html')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/login/login.component.ts'),
+          this.destinationPath('src/app/login/login.component.ts')
+        );
+
+        //page not found
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/page-not-found/page-not-found.component.css'),
+          this.destinationPath('src/app/shared/component/page-not-found/page-not-found.component.css')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/page-not-found/page-not-found.component.html'),
+          this.destinationPath('src/app/shared/component/page-not-found/page-not-found.component.html')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/page-not-found/page-not-found.component.ts'),
+          this.destinationPath('src/app/shared/component/page-not-found/page-not-found.component.ts')
+        );
+        //page error
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/page-error/page-error.component.css'),
+          this.destinationPath('src/app/shared/component/page-error/page-error.component.css')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/page-error/page-error.component.html'),
+          this.destinationPath('src/app/shared/component/page-error/page-error.component.html')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/component/page-error/page-error.component.ts'),
+          this.destinationPath('src/app/shared/component/page-error/page-error.component.ts')
+        );
+
         this.fs.copy(
           this.templatePath('src/app/app.module.ts'),
           this.destinationPath('src/app/app.module.ts')
@@ -133,12 +174,40 @@ module.exports = yeoman.Base.extend({
           this.destinationPath('src/public/css/styles.css')
         );
         this.fs.copy(
+          this.templatePath('src/public/css/loading.css'),
+          this.destinationPath('src/public/css/loading.css')
+        );
+        this.fs.copy(
           this.templatePath('src/public/css/main.css'),
           this.destinationPath('src/public/css/main.css')
         );
         this.fs.copy(
           this.templatePath('src/public/images/logo-putih.png'),
           this.destinationPath('src/public/images/logo-putih.png')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/images/f32.png'),
+          this.destinationPath('src/public/images/f32.png')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/images/ktp.jpg'),
+          this.destinationPath('src/public/images/ktp.jpg')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/images/login_icon.png'),
+          this.destinationPath('src/public/images/login_icon.png')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/images/m32.png'),
+          this.destinationPath('src/public/images/m32.png')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/images/w_user.png'),
+          this.destinationPath('src/public/images/w_user.png')
+        );
+        this.fs.copy(
+          this.templatePath('src/public/images/w_lock.png'),
+          this.destinationPath('src/public/images/w_lock.png')
         );
         this.fs.copy(
           this.templatePath('src/public/images/favicon.ico'),
@@ -241,16 +310,24 @@ module.exports = yeoman.Base.extend({
           this.destinationPath('src/app/shared/service/validation-message.service.ts')
         );
         this.fs.copy(
-          this.templatePath('src/app/shared/service/token.service.ts'),
-          this.destinationPath('src/app/shared/service/token.service.ts')
-        );
-        this.fs.copy(
           this.templatePath('src/app/shared/service/sidebar.service.ts'),
           this.destinationPath('src/app/shared/service/sidebar.service.ts')
         );
         this.fs.copy(
           this.templatePath('src/app/shared/model/common-response.ts'),
           this.destinationPath('src/app/shared/model/common-response.ts')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/model/common-response-paging.ts'),
+          this.destinationPath('src/app/shared/model/common-response-paging.ts')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/model/common-status.ts'),
+          this.destinationPath('src/app/shared/model/common-status.ts')
+        );
+        this.fs.copy(
+          this.templatePath('src/app/shared/model/paging-data.ts'),
+          this.destinationPath('src/app/shared/model/paging-data.ts')
         );
         this.fs.copy(
           this.templatePath('src/app/shared/shared.module.ts'),

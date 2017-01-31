@@ -1,0 +1,14 @@
+.detail-nasabah {
+  float: left;
+  margin-top: 4px;
+}
+
+.ktp-detail {
+  float:left;
+  width: 350px;
+  height: 220px;
+}
+
+.form-nasabah {
+  width: 300px;
+}

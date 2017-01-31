@@ -50,23 +50,23 @@ module.exports = yeoman.Base.extend({
       );
 
       helper.findFile(sc, directivePath).subscribe(function (file) {
-        helper.readFile(file).subscribe(function (a) {
+        helper.readFile(file.moduleName).subscribe(function (a) {
           if (a.isRootModule) {
             var res = helper
               .init(a.content, directiveName + 'Directive', _.join(['.', directiveFileName + '.directive'], '/'))
               .importInjector()
               .bracketDeclarationInjector()
               .beautiful()
-              .writeFile(file);
+              .writeFile(file.moduleName);
             // console.log(res);
           } else {
             var res = helper
-              .init(a.content, directiveName + 'Directive', _.join(['.', directiveFileName + '.directive'], '/'))
+              .init(a.content, directiveName + 'Directive', _.join(['.', file.componentFolder, directiveFileName + '.directive'], '/'))
               .importInjector()
               .bracketDeclarationInjector()
               .bracketExportInjector()
               .beautiful()
-              .writeFile(file);
+              .writeFile(file.moduleName);
           }
         });
       })

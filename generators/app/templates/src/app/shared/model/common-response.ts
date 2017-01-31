@@ -1,9 +1,13 @@
-export class CommonResponse {
-  responseCode: string;
-  responseDescription: string;
+import {CommonStatus} from "./common-status";
 
-  constructor(responseCode: string, responseDescription: string) {
-    this.responseCode = responseCode;
-    this.responseDescription = responseDescription;
-  }
+export class CommonResponse<T> {
+    commonStatus: CommonStatus;
+    requestId: string;
+    data: T;
+
+    constructor(commonStatus: CommonStatus, requestId: string, data: T) {
+        this.commonStatus = commonStatus;
+        this.requestId = requestId;
+        this.data = data;
+    }
 }

@@ -6,20 +6,24 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AppRouteModule} from './app-route/app-route.module';
 
 import {AppComponent} from './app.component';
-import {WelcomeComponent} from './welcome/welcome.component';
+import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './login/login.component';
 /* beautify preserve:end */
 
 @NgModule({
   imports: [
+    // start_imports
     BrowserModule,
     AppRouteModule,
     SharedModule,
     ReactiveFormsModule
+    // end_imports
   ],
   declarations: [
     // start_declarations
     AppComponent,
-    WelcomeComponent
+    HomeComponent,
+    LoginComponent
     // end_declarations
   ],
   providers: [

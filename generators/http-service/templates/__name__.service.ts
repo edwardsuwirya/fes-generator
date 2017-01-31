@@ -10,30 +10,28 @@ export class <%= httpServiceName %>Service {
 
     constructor(private http:Http,private tokenService:TokenService) { }
 
-    createAuthorizationHeader(headers: Headers) {
-      headers.append('Authorization', 'Bearer  ' +
-      this.tokenService.getToken('usertoken'));
-    }
+    // createAuthorizationHeader(headers: Headers) {
+    //   headers.append('Authorization', 'Bearer  ' +
+    //   this.tokenService.getToken('usertoken'));
+    // }
 
     getApi():Observable<any>{
-      let headers = new Headers();
-      this.createAuthorizationHeader(headers);
+      // let headers = new Headers();
+      // this.createAuthorizationHeader(headers);
+      //
+      // let options = new RequestOptions({ headers: headers });
+      //
+      // return this.http.get(this.serviceBaseUrl,options)
+      //   .map(this.extractData)
+      //   .catch(this.handleError);
 
-      let options = new RequestOptions({ headers: headers });
-
-      return this.http.get(this.serviceBaseUrl,options)
+      return this.http.get(this.serviceBaseUrl)
         .map(this.extractData)
         .catch(this.handleError);
       }
 
     postApi(model:any):Observable<any>{
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.createAuthorizationHeader(headers);
-
-      let options = new RequestOptions({ headers: headers });
-
-      return this.http.post(this.serviceBaseUrl,model,options)
+      return this.http.post(this.serviceBaseUrl,model)
         .map(this.extractData)
         .catch(this.handleError);
     }

@@ -51,23 +51,23 @@ module.exports = yeoman.Base.extend({
       );
 
       helper.findFile(sc, pipePath).subscribe(function (file) {
-        helper.readFile(file).subscribe(function (a) {
+        helper.readFile(file.moduleName).subscribe(function (a) {
           if (a.isRootModule) {
             var res = helper
               .init(a.content, pipeName + 'Pipe', _.join(['.', pipePath, pipeFileName + '.pipe'], '/'))
               .importInjector()
               .bracketDeclarationInjector()
               .beautiful()
-              .writeFile(file);
+              .writeFile(file.moduleName);
             // console.log(a);
-          }else{
+          } else {
             var res = helper
-              .init(a.content, pipeName + 'Pipe', _.join(['.', pipePath, pipeFileName + '.pipe'], '/'))
+              .init(a.content, pipeName + 'Pipe', _.join(['.', file.componentFolder, pipePath, pipeFileName + '.pipe'], '/'))
               .importInjector()
               .bracketDeclarationInjector()
               .bracketExportInjector()
               .beautiful()
-              .writeFile(file);
+              .writeFile(file.moduleName);
           }
         });
       });

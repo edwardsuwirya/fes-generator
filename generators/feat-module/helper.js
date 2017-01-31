@@ -34,7 +34,7 @@ module.exports = {
           o[i] +
           '</label>');
       }
-      result = ('<div class=\'form-group\'>' +
+      result = ('<label class=\'form-group\'>' + s + '</label> <div class=\'form-group\'>' +
         opOptions.join('\n') +
         '</div>'
       )

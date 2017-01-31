@@ -1,6 +1,5 @@
 /* beautify preserve:start */
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { <%= featureName %>Service } from './<%= featureFileName %>.service';
 import { <%= featureName %>ListComponent } from './list/<%= featureFileName %>-list.component';
@@ -9,25 +8,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 
 /* beautify preserve:end */
 
-const routes: Routes = [{
-  path: '<%= featureMainPath %>',
-  children: [
-    {
-      path: 'list',
-      component: <%= featureName %>ListComponent
-    },
-    {
-      path: 'detail',
-      component: <%= featureName %>DetailComponent
-    }
-  ]
-}];
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    ReactiveFormsModule
   ],
   declarations: [
     // start_declarations
@@ -42,6 +27,8 @@ const routes: Routes = [{
   ],
   exports: [
     // start_exports
+    <%= featureName %>ListComponent,
+    <%= featureName %>DetailComponent
     // end_exports
   ]
 })

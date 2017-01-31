@@ -61,7 +61,7 @@ module.exports = yeoman.Base.extend({
       );
 
       helper.findFile(sc, componentPath).subscribe(function (file) {
-        helper.readFile(file).subscribe(function (a) {
+        helper.readFile(file.moduleName).subscribe(function (a) {
           var res;
           if (a.isRootModule) {
             res = helper
@@ -69,15 +69,15 @@ module.exports = yeoman.Base.extend({
               .importInjector()
               .bracketDeclarationInjector()
               .beautiful()
-              .writeFile(file);
+              .writeFile(file.moduleName);
           } else {
             res = helper
-              .init(a.content, componentName + 'Component', _.join(['.', componentFileName, componentFileName + '.component'], '/'))
+              .init(a.content, componentName + 'Component', _.join(['.', file.componentFolder, componentFileName, componentFileName + '.component'], '/'))
               .importInjector()
               .bracketDeclarationInjector()
               .bracketExportInjector()
               .beautiful()
-              .writeFile(file);
+              .writeFile(file.moduleName);
           }
           // console.log(res);
         });

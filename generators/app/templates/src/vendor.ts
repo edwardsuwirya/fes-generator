@@ -15,6 +15,7 @@ import 'accounting/accounting.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './public/css/font-awesome/css/font-awesome.min.css';
+import './public/css/loading.css';
 import './public/css/main.css';
 import './public/css/styles.css';
 

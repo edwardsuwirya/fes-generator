@@ -28,33 +28,31 @@ a:hover {
   transition: all 0.3s ease-in-out; ;
 }
 
-/*nav {
-  width: 20%;
-  height: 100%;
-  float: left;
-  background-color: #E0E0E0;
-  border-right: 1px solid #f57e18;
-  position: fixed;
-  margin-top: 50px;
-  left: 0;
-}*/
-
 main {
-  width: 98%;
   padding: 2em;
   font-family: Arial, Helvetica, sans-serif;
-  margin-top: 50px;
-  /*float: right;*/
+  margin-top: 20px;
   display: block;
-  /*background-color: red;*/
 }
 
-.footer {
-  width: 100%;
-  height: 40px;
-  position: fixed;
-  border-top: 0px solid #d8d8d8;
-  bottom: 0
+.col-right {
+  float: right;
+}
+
+.col-right {
+  float: left;
+}
+
+.enteries {
+  float: left;
+  margin-top: 5px;
+  margin-left: -14px;
+  color: #f57e18
+}
+
+.paging {
+  float: right;
+  margin: -15px
 }
 
 .help-block {
@@ -62,8 +60,27 @@ main {
 }
 
 .logo-app {
-  width: 35%;
+  width: 30%;
   height: auto;
+  margin-bottom: 12px
+}
+
+.row-login {
+  text-align: center;
+  margin-top: 30%;
+}
+
+.row-form {
+  margin-top: 20px
+}
+
+.icon-login {
+  background: #7d6958;
+  border: 1px solid #7d6958;
+}
+
+.form-login {
+  height: 38px;
 }
 
 .toggle-menu {
@@ -92,7 +109,7 @@ main {
   overflow: hidden;
   height: 100vh;
   max-height: 100vh;
-  background-color: /*rgba(17, 17, 17, 0.9)*/ #f57e18;
+  background-color: #f57e18;
   opacity: 0.9;
   transition: all 0.3s ease-in-out;
   z-index: 10;
@@ -113,7 +130,7 @@ main {
   opacity: 1;
 }
 
-.fa-power-off {
+/*.fa-power-off {
   color: #fff;
   font-size: 20px;
   cursor: pointer;
@@ -121,18 +138,13 @@ main {
   float: right;
   padding: 8px 0px 15px 9px;
   transition: all 0.3s ease-in-out;
-  /*background-color: #f57e18;
-  height: 30px;
-  width: 30px;
-  border-radius: 50px;
-  margin-top: 8px;*/
 }
 
 .fa-power-off:hover {
   color: #f5af18;
   opacity: 1;
   transition: all 0.3s ease-in-out;
-}
+}*/
 
 .top-site {
   width: 100%;
@@ -144,7 +156,7 @@ main {
 
 .title-page {
   font-family: "Arial";
-  font-weight: 800;
+  font-weight: 200;
   color: #7d6958;
   float: left;
   margin-top: 3px;
@@ -176,7 +188,7 @@ main {
 }
 
 .nav_item {
-  font-family: "Arial";
+  font-family: "Helvetica";
   padding: 10px 0;
   box-sizing: border-box;
   font-size: 14px;
@@ -187,7 +199,6 @@ main {
 }
 
 .nav_item:hover {
-  /*background-color: #fc9f4f;*/
   color: #5e4e41;
   transition: all 0.3s ease-in-out;
 }
@@ -200,14 +211,6 @@ main {
   width: 100%;
   height:auto;
 }
-
-/*.load {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}*/
-
 
 .icon-app {
   width: 75px;
@@ -225,10 +228,23 @@ main {
   width: auto;
 }
 
+.col-search {
+  float: right;
+}
+
+.hi {
+  color: #fff;
+  float: right;
+  margin-top: 12px;
+  margin-right: 10px;
+  width: auto;
+}
+
 .user-login {
   color: #f5af18;
   float: right;
   margin-top: 12px;
+  margin-right: 15px;
   width: auto;
   cursor: pointer;
 }
@@ -244,7 +260,18 @@ main {
   margin: 7px
   }
 
- .add-new {
+ .icon-user {
+  font-size: 20px;
+  font-weight: 400
+ }
+
+ .i-user-login {
+    width: 32px;
+    height: auto;
+    margin-top: -2px;
+ }
+
+ .add_new {
   float: right;
   margin-left: 2px;
   margin-right: 2px;
@@ -256,6 +283,22 @@ main {
   margin-right: 2px;
  }
 
+ .center {
+  text-align: center;
+ }
+
+ .ktp-action {
+  text-align: center;
+  width: 170px;
+ }
+
+.btn_action {
+  text-align: center;
+  position: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
 .copyright {
   text-align: center;
   cursor: pointer;
@@ -263,7 +306,6 @@ main {
   font-size: 12px;
   font-weight: 200;
   margin-top: 12px;
-  color: #7d6958;
 }
 
 .copyright:hover {
@@ -271,323 +313,8 @@ main {
   transition: all 0.3s ease-in-out;
 }
 
-
 .version {
   float: right;
   margin: 10px;
   color: #7d6958;
-}
-
-/* ======== LOADING ======== */
-.cssload-wraper{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width:0px;
-  display:block;
-  /*margin: 97px auto;*/
-}
-
-.cssload-dots {
-  font-family: sans-serif;
-  font-weight: 100;
-}
-
-.cssload-dots:not(:required) {
-  overflow: hidden;
-  position: relative;
-  text-indent: -9749px;
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  background: transparent;
-  border-radius: 100%;
-  box-shadow: rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-    -o-box-shadow: rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-    -ms-box-shadow: rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-    -webkit-box-shadow: rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-    -moz-box-shadow: rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  animation: cssload-dots 5s infinite ease-in-out;
-    -o-animation: cssload-dots 5s infinite ease-in-out;
-    -ms-animation: cssload-dots 5s infinite ease-in-out;
-    -webkit-animation: cssload-dots 5s infinite ease-in-out;
-    -moz-animation: cssload-dots 5s infinite ease-in-out;
-  transform-origin: 50% 50%;
-    -o-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    -webkit-transform-origin: 50% 50%;
-    -moz-transform-origin: 50% 50%;
-}
-
-
-
-@keyframes cssload-dots {
-  0% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  8.33% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  16.67% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px 14px 0 7px, rgb(255,119,0) 14px 14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  25% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  33.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee -14px -14px 0 7px;
-  }
-
-  41.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  50% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  58.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  66.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px -14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  75% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  83.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee 14px 14px 0 7px;
-  }
-
-  91.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  100% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-}
-
-@-o-keyframes cssload-dots {
-  0% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  8.33% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  16.67% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px 14px 0 7px, rgb(255,119,0) 14px 14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  25% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  33.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee -14px -14px 0 7px;
-  }
-
-  41.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  50% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  58.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  66.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px -14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  75% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  83.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee 14px 14px 0 7px;
-  }
-
-  91.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  100% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-}
-
-@-ms-keyframes cssload-dots {
-  0% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  8.33% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  16.67% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px 14px 0 7px, rgb(255,119,0) 14px 14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  25% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  33.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee -14px -14px 0 7px;
-  }
-
-  41.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  50% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  58.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  66.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px -14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  75% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  83.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee 14px 14px 0 7px;
-  }
-
-  91.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  100% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-}
-
-@-webkit-keyframes cssload-dots {
-  0% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  8.33% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  16.67% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px 14px 0 7px, rgb(255,119,0) 14px 14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  25% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  33.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee -14px -14px 0 7px;
-  }
-
-  41.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  50% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  58.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  66.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px -14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  75% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  83.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee 14px 14px 0 7px;
-  }
-
-  91.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  100% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-}
-
-@-moz-keyframes cssload-dots {
-  0% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) -14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  8.33% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px -14px 0 7px, rgb(255,119,0) 14px -14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  16.67% {
-    box-shadow: white 0 0 15px 0, rgb(128,104,64) 14px 14px 0 7px, rgb(255,119,0) 14px 14px 0 7px, rgb(102,221,119) 14px 14px 0 7px, rgb(68,170,238) -14px 14px 0 7px;
-  }
-
-  25% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  33.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee -14px -14px 0 7px;
-  }
-
-  41.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  50% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  58.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 -14px 14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  66.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 -14px -14px 0 7px, #66dd77 -14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  75% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px -14px 0 7px, #44aaee 14px -14px 0 7px;
-  }
-
-  83.33% {
-    box-shadow: white 0 0 15px 0, #ff8866 14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee 14px 14px 0 7px;
-  }
-
-  91.67% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px 14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
-
-  100% {
-    box-shadow: white 0 0 15px 0, #ff8866 -14px -14px 0 7px, #ffcc66 14px -14px 0 7px, #66dd77 14px 14px 0 7px, #44aaee -14px 14px 0 7px;
-  }
 }
